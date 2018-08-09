@@ -1,29 +1,35 @@
 import $ from 'jquery';
+import React, { Component } from 'react';
+import WeatherBackground from './changeWeatherBackground';
 
-class WebPage extends Component{
-	componentDidMount() {
-	    fetch("api.openweathermap.org/data/2.5/weather?lat=" + this.state.latitude + "&lon=" + this.state.longitude)
-	      .then(res => res.json())
-	      .then(
-	        (result) => {
-	        	console.log(result);
-	          this.setState({
-	            isLoaded: true,
-	            items: result.items
-	          });
-	          console.log(this.state.items);
-	        },
-	        // Note: it's important to handle errors here
-	        // instead of a catch() block so that we don't swallow
-	        // exceptions from actual bugs in components.
-	        (error) => {
-	          this.setState({
-	            isLoaded: true,
-	            error
-	          	});
-	        		}
-	    		)
+class GetWeather extends Component{
+	constructor(props){
+		super(props);
+		this.state = {};
 	}
-	render(){
-		return ()
+	render(){	
+			$.ajax({
+				url: this.props.url,
+				error: (xhr,status,err)=>{
+					console.log(err);
+				},
+				type: "GET",
+				statusCode: {
+				    404: function() {
+				      alert( "page not found" );
+				    }
+  				}
+  			}).done(function(data){
+  				console.log(data)
+  			})
+  				
+		console.log(this.props.url);
+		return (
+			<div>
+				<h1>From GetWeather {this.props.latitude}</h1>
+				<WeatherBackground />
+			</div>
+			)
 	}
+}
+export default GetWeather;

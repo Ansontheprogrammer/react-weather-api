@@ -1,4 +1,7 @@
-class myWeather extends Component{
+import $ from 'jquery';
+import React, { Component } from 'react';
+
+class WeatherBackground extends Component{
 	constructor(props){
 		super(props);
 		this.state = {
@@ -10,7 +13,9 @@ class myWeather extends Component{
 		}
 	}
 	render(){
-		
+		return(<h2>From WeatherBackground</h2>)
 	}
 	
 }
+
+export default WeatherBackground;

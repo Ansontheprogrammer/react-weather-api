@@ -14,22 +14,13 @@ class myWeather extends Component{
 			sunny: null,
 			latitude: 0,
 			longitude: 0,
-			setLocation: false,
-			getLocation: ()=>{
-				if (this.refs.get.value.toLowerCase === "yes"){
-					this.state.setLocation = true;
-					console.log("ok setLocation is " + this.state.setLocation);
-				} else{
-					this.refs.get.value.toLowerCase === "no" ? console.log("ok") : alert("Answer Invalid");
-				}
-			},	
-		};
-	};
-
+			}
+		}
 	render() {
 	    return (
 	      <div className="App">
 	        <WebPage />
+	        <GetLocation />
 
 	      </div>
 	    );

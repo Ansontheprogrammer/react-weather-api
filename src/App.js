@@ -20,7 +20,6 @@ class myWeather extends Component{
 	    return (
 	      <div className="App">
 	        <WebPage />
-	        <GetLocation />
 
 	      </div>
 	    );

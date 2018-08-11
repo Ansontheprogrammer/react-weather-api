@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Board from './board';
-
+import GetWeather from './GetWeather'
 class GetLocation extends Component {
 	constructor(){
 		super();
@@ -10,8 +10,6 @@ class GetLocation extends Component {
 			  timeout: 5000,
 			  maximumAge: 0
 				},
-			latitude : 0,
-			longitude: 0,
 		}
 	}
 
@@ -19,9 +17,7 @@ class GetLocation extends Component {
 		function success(pos) {
 		  var crd = pos.coords;
 		  this.setState({
-		  	latitude: crd.latitude,
-		  	longitude: crd.longitude,
-		  	url: "https://api.openweathermap.org/data/2.5/weather?lat=" + crd.latitude + "&lon=" + crd.longitude
+		  	url: "https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=" + crd.latitude + "&lon=" + crd.longitude
 		  });
 		}
 
@@ -32,7 +28,7 @@ class GetLocation extends Component {
 		navigator.geolocation.getCurrentPosition(success.bind(this), error, this.state.options);
 
 		return(
-			<div></div>
+			<GetWeather url= {this.state.url} chosen={this.props.chosen} />
 			);
 	};
 }

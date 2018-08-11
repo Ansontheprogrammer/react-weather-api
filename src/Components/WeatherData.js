@@ -8,7 +8,6 @@ class WeatherData extends Component {
 	}
 
 	render() {
-		console.log('hey')
 		return(
 			<div>
 				<div class="container-fluid">

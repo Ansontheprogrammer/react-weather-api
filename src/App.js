@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import WebPage from './Components/webPage';
-import GetLocation from './Components/GetLocation';
 
 class myWeather extends Component{
 	constructor(props){

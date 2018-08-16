@@ -14,7 +14,6 @@ class Board extends Component {
 	}
 	chosen(props){
 		if (this.props.chosen){
-			console.log('in chosen');
 			return <WeatherData temperature= {this.props.temperature} city = {this.props.city} weather = {this.props.weather} description = {this.props.description} />
 		}
 	}

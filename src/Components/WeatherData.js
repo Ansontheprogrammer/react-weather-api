@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import WeatherBackground from './changeWeatherBackground';
+import sunny from '../img/sunny.jpg';
+import spring from '../img/spring.jpg';
+import cold from '../img/cold.jpg';
+import $ from 'jquery';
 
 class WeatherData extends Component {
 	constructor(props){
@@ -15,13 +18,13 @@ class WeatherData extends Component {
 		this.changeBackground();
 	}
 	hot (temp){
-		temp.style.backgroundColor = 'red';
+		$('body').css('background-image', `url(${sunny})`)
 	}
 	cool (temp){
-		temp.style.backgroundColor = 'green';
+		$('body').css('background-image', `url(${spring})`)
 	}
 	cold (temp){
-		temp.style.backgroundColor = 'blue'
+		$('body').css('background-image', `url(${cold})`)
 	}
 
 	changeBackground(){
@@ -52,23 +55,30 @@ class WeatherData extends Component {
 
 	
 	render() {	
-		// this.changeBackground();
 		return(
 			<div>
-				<div class="container-fluid">
-					<h1> Hey there in {this.props.city} and its {this.state.backgroundWeather} today!</h1>
-				</div>
-				<div class="container jumbotron">
-					<h3>Here is your temperature:</h3>
-					<div id="temp" class="container">
-						<p>Temperature: {this.props.temperature}</p>
-					</div>
-					<div id="weather" class="container-fluid">
-						<p>Weather: {this.props.weather}</p>
-					</div>
-					<div id="description" class="container-fluid">
-						<p>Description: {this.props.description}</p>
-					</div>
+				<div class="container">
+					<div class="row">
+						  <div class ='col-lg-4'>
+							  <h1> Your city: {this.props.city}</h1> <br/>
+							  <h1> How it feels today: <br />{this.state.backgroundWeather}!</h1>
+						  </div>
+						  <div class ='col-lg-8'>
+						  		<ul class="list-group">
+								    <div id="temp" class="container-fluid">
+										<h3>Temperature: {this.props.temperature}</h3>
+									</div>
+									<br />
+									<div id="weather" class="container-fluid">
+										<h3>Weather: {this.props.weather}</h3>
+									</div>
+									<br />
+									<div id="description" class="container-fluid">
+										<h3>Description: {this.props.description}</h3>
+									</div>
+								</ul>
+						  </div>
+				    </div>	
 				</div>
 				
 			</div>

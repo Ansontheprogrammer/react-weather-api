@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import GetWeather from './getWeather';
-import GetInputs from './GetInputs';
 import PropTypes from 'prop-types';
 
 class WebPage extends Component{
@@ -28,11 +27,13 @@ class WebPage extends Component{
 		return(
 			<div>
 				<div>
-					<header className="App-header">
-			          <div class="container-fluid">
-			          <h1 className="App-title">Welcome my Weather Api {}</h1>
-			          </div>
-			        </header>
+					<div class="jumbotron">
+						<div class='container'>
+						  <h1>React Weather Api <small>Prod. by Anson Ervin</small></h1>
+						 
+						  
+						</div>
+					</div>
 			        <GetWeather chosen={this.state.chosen}/>
 			        <p className="App-intro">
 			          <div class="container">

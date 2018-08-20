@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import WeatherBackground from './changeWeatherBackground';
 import Board from './board';
 import PropTypes from 'prop-types';
 
